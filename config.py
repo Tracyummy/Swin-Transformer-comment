@@ -187,6 +187,10 @@ _C.LOCAL_RANK = 0
 
 
 def _update_config_from_file(config, cfg_file):
+    """
+    config: _C.copy()
+    cfg_file (str) : file path of model config which in configs folder.
+    """
     config.defrost()
     with open(cfg_file, 'r') as f:
         yaml_cfg = yaml.load(f, Loader=yaml.FullLoader)
@@ -202,6 +206,10 @@ def _update_config_from_file(config, cfg_file):
 
 
 def update_config(config, args):
+    """ 
+    config: _C
+    args: args in main.py
+    """
     _update_config_from_file(config, args.cfg)
 
     config.defrost()
